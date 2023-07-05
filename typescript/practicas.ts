@@ -1,8 +1,8 @@
 class Car {
   // Propiedades de la classe
-  _make: string;
-  _color: string;
-  _doors: number;
+  private _make: string;
+  private _color: string;
+  private _doors: number;
 
   // Constructor 
   constructor(make: string, color: string, doors = 4){
@@ -51,14 +51,14 @@ class Car {
     }
 
     // Esta funcion realiza el trabajo para las otras funciones del metodo.
-    worker(): string {
+    private worker(): string {
         return this._make;
     }
 }
 
 let myCar1 = new Car('Coche de la compania', 'Blanco', 4);
 
-let myCar2 = new Car('Mercedes', 'Negro', 3);
+let myCar2 = new Car('Mercedes', 'Negro', 2);
 
 let myCar3 = new Car('Peugeot', 'Gris');
 //console.log(myCar3.doors); //Devuelve 4, valor por defecto.
