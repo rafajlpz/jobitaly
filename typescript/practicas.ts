@@ -1,5 +1,6 @@
 class Car {
   // Propiedades de la classe
+  private static numeroDeCoches: number = 0; // Nueva propiedad estatica
   private _make: string;
   private _color: string;
   private _doors: number;
@@ -13,6 +14,7 @@ class Car {
     } else {
         throw new Error ('Las puertas deben ser un numero par')
     }
+    Car.numeroDeCoches++; // Incrementa el valor de la propiedad estatica
   }
 
   // Accessors
@@ -38,6 +40,9 @@ class Car {
        throw new Error('Doors debe ser un numero');
     }
   }
+  public static getNumeroDeCoches(): number {
+    return Car.numeroDeCoches;
+  }
   
   // Metodos
     accelerate(speed: number): string {
@@ -60,9 +65,11 @@ let myCar1 = new Car('Coche de la compania', 'Blanco', 4);
 
 let myCar2 = new Car('Mercedes', 'Negro', 2);
 
-let myCar3 = new Car('Peugeot', 'Gris');
+console.log(Car.getNumeroDeCoches());
+
+//let myCar3 = new Car('Peugeot', 'Gris');
 //console.log(myCar3.doors); //Devuelve 4, valor por defecto.
 
-console.log(myCar1.accelerate(60));
-console.log(myCar1.brake());
-console.log(myCar1.turn('derecha'));
+//console.log(myCar1.accelerate(60));
+//console.log(myCar1.brake());
+//console.log(myCar1.turn('derecha'));
