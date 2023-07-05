@@ -8,7 +8,11 @@ class Car {
   constructor(make: string, color: string, doors = 4){
     this._make = make;
     this._color = color;
-    this._doors = doors;
+    if (doors % 2 === 0){
+        this._doors = doors;
+    } else {
+        throw new Error ('Las puertas deben ser un numero par')
+    }
   }
 
   // Accessors
@@ -28,7 +32,7 @@ class Car {
     return this._doors;
   }
   set doors(doors) {
-    if (doors / 2 === 0) {
+    if (doors % 2 === 0) {
       this._doors = doors;
     } else {
        throw new Error('Doors debe ser un numero');
@@ -42,8 +46,8 @@ class Car {
     brake(): string{
         return `${this.worker()} esta utilizando el sistema de frenos estandar`
     }
-    turn(direction: 'left' | 'right'): string {
-        return `${this.worker()} is turning ${direction}`
+    turn(direction: 'izquierda' | 'derecha'): string {
+        return `${this.worker()} esta girando a la ${direction}`
     }
 
     // Esta funcion realiza el trabajo para las otras funciones del metodo.
@@ -51,3 +55,14 @@ class Car {
         return this._make;
     }
 }
+
+let myCar1 = new Car('Coche de la compania', 'Blanco', 4);
+
+let myCar2 = new Car('Mercedes', 'Negro', 3);
+
+let myCar3 = new Car('Peugeot', 'Gris');
+//console.log(myCar3.doors); //Devuelve 4, valor por defecto.
+
+console.log(myCar1.accelerate(60));
+console.log(myCar1.brake());
+console.log(myCar1.turn('derecha'));
