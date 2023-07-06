@@ -108,7 +108,16 @@ let spark = new ElectricCar('Tiburon Motors', 'Plateado', 124, 2);
 
 let eCar = new ElectricCar('Electric Car Co.', 'black', 263);
 
-console.log(eCar.doors); //devuelve el valor por defecto que es 2.
-spark.charge(); //devuelve "Spark motors is charging"
+//console.log(eCar.doors); //devuelve el valor por defecto que es 2.
+//spark.charge(); //devuelve "Spark motors is charging"
 
-console.log(spark.brake()); // devuelve "Spark Motors esta frenando con el sistema de frenado regenerativo"
+//console.log(spark.brake()); // devuelve "Spark Motors esta frenando con el sistema de frenado regenerativo"
+
+interface Vehicle {
+  make: string;
+  color: string;
+  door: number;
+  accelerate(speed: number): string;
+  brake(): string;
+  turn(direction: 'izquierda | derecha'): string;
+}
