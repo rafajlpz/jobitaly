@@ -1,0 +1,28 @@
+{
+  "name": "tiempoapp",
+  "homepage": "index.html",
+  "description": "Aplicacion del tiempo con Polymer",
+  "main": "index.html",
+  "keywords": [
+    "tiempo",
+    "weather"
+  ],
+  "authors": [
+    "Rafael Lopez"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-elements": "PolymerElements/iron-elements#^1.0.10",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "gold-elements": "PolymerElements/gold-elements#^1.0.1"
+  }
+}
