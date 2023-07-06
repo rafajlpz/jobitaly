@@ -4,6 +4,15 @@ body{
     margin: 0;
 }
 
-.main{
+.paper-main{
     background: #2196F3;
+}
+.paper-drawer{
+    background-color: #0D47A1;
+}
+
+.icon-add{
+    position: absolute;
+    bottom: 10px;
+    right: 10px 
 }
