@@ -1,5 +1,6 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html" />
 <link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../rafael-current/rafael-current.html">
 <dom-module id="rafael-weather">
     <style>
         :host{
@@ -30,6 +31,8 @@
       url="https://api.openweathermap.org/data/2.5/forecast?lat=42.8794&lon=-8.5442&mode=json&units=metric&lang=es&appid=5d7806aafe9740a8744bb1bdad9b86b5"
       on-response="getForecastData"
     ></iron-ajax>
+
+    <rafael-current id="currentWeather"></rafael-current>
   </template>
 </dom-module>
 
@@ -43,7 +46,16 @@
     getCurrentData: function(event){
       console.log(event.detail.response);
       var response = event.detail.response;
-      this.imageSrc = "/img/" + response.weather[0].icon + "_bg.jpg"
+      this.imageSrc = "/img/" + response.weather[0].icon + "_bg.jpg";
+
+      var current = this.$.currentWeather;
+      console.log(current);
+
+      current.temp = Number(response.main.temp).toFixed(1) + "°C";
+      current.humidity = Number(response.main.humidity) + "%";
+      current.icon = "/img/" + response.weather[0].icon + ".png";
+      current.city = response.name;
+      current.desc = response.weather[0].description;
     },
     getForecastData: function(event){
         console.log(event.detail.response)
