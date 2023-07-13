@@ -1,0 +1,28 @@
+.btnWhatsApp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    border-radius: 8px;
+    padding: 4px;
+    height: 35px;
+    width: 120px; /* Ajusta el valor según tus necesidades */
+    background-color: #25D366;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 35px;
+  }
+  
+  .btnWhatsApp img {
+    width: 30px; /* Ajusta el valor según tus necesidades */
+    height: 30px; /* Ajusta el valor según tus necesidades */
+    margin-right: 5px; /* Ajusta el valor según tus necesidades */
+  }
+  
+  .btnWhatsApp span {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Roboto', 'Noto', 'sans-serif';
+    font-weight: 600;
+  }

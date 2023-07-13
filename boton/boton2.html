@@ -1,0 +1,118 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html" />
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html" />
+<link rel="import" href="../sportito-app-theme/sportito-app-theme.html" />
+
+<dom-module id="sportito-pa-how-it-works-whatsapp">
+    <template>
+        <style>
+            .container-whats {
+                display: none;
+            }
+
+            .btnWhatsApp {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 8px;
+                border-radius: 8px;
+                padding: 4px;
+                height: 35px;
+                width: 120px;
+                /* Ajusta el valor según tus necesidades */
+                background-color: #25d366;
+                text-decoration: none;
+                color: #ffffff;
+                text-align: center;
+                line-height: 35px;
+            }
+
+            .btnWhatsApp img {
+                width: 30px;
+                /* Ajusta el valor según tus necesidades */
+                height: 30px;
+                /* Ajusta el valor según tus necesidades */
+                margin-right: 5px;
+                /* Ajusta el valor según tus necesidades */
+            }
+
+            .btnWhatsApp span {
+                white-space: nowrap;
+                overflow: hidden;
+                font-family: "Roboto", "Noto", "sans-serif";
+                font-weight: 600;
+            }
+
+            .first-text {
+                /* display: none; */
+                text-align: justify;
+                margin-top: 35px;
+                margin-bottom: 10px;
+                margin-left: 35px;
+                margin-right: 35px;
+                text-align: center;
+                font-family: "Roboto", "Noto", "sans-serif";
+                font-size: 20px;
+                font-weight: 650;
+                color: #35c0e9;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .container-whats {
+                    display: block;
+                }
+            }
+        </style>
+        <template is="dom-if" if="[[_isItalian(lng)]]">
+            <div class="container-whats">
+                <div class="first-text">
+                    Sportito è facile e gratuito: registrati, seleziona il gioco, crea la
+                    tua squadra e vinci premi.
+                </div>
+                <a on-click="_shareWhatsApp" class="btnWhatsApp">
+                    <!-- Icono WhatsApp -->
+                    <img src="../../images/whatsapp-icon/whats2.png" alt="WhatsApp" />
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </template>
+    </template>
+    <script>
+        Polymer({
+            is: "sportito-pa-how-it-works-whatsapp",
+
+            properties: {
+                lng: {
+                    type: String,
+                    value: "it-IT",
+                },
+            },
+
+            // _shareWhatsApp: function () {
+            //   var text = 'You can\'t beat my lineup';
+            //   var url = "https://www.sportito.it/pa/register_light"
+            //   var whats_app_message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+            //   var whatsapp_url = "whatsapp://send?text=" + whats_app_message;
+            //   window.location.href = whatsapp_url;
+            // }
+
+            //Only test for WhatsApp Web
+            _shareWhatsApp: function () {
+                var text = "You can't beat my lineup";
+                var url = "https://www.sportito.it/pa/register_light";
+                var encodedText = encodeURIComponent(text);
+                var encodedUrl = encodeURIComponent(url);
+                var whatsappUrl =
+                    "https://web.whatsapp.com/send?text=" +
+                    encodedText +
+                    " - " +
+                    encodedUrl;
+
+                window.open(whatsappUrl, "_blank");
+            },
+
+            _isItalian: function (lng) {
+                return lng === "it-IT";
+            },
+        });
+    </script>
+</dom-module>
