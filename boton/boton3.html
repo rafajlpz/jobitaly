@@ -1,0 +1,91 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../sportito-app-theme/sportito-app-theme.html">
+
+<dom-module id="sportito-pa-how-it-works-whatsapp">
+  <template>
+    <style>
+      .container-whats {
+        display: none
+      }
+
+      .btnWhatsApp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 8px;
+        border-radius: 100%;
+        padding: 10px;
+        height: 35px;
+        width: 35px;
+        background-color: #25D366;
+        text-decoration: none;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 80px;
+      }
+
+      .btnWhatsApp img {
+        max-width: 125%;
+        max-height: 125%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .first-text {
+        text-align: justify;
+        margin-top: 35px;
+
+        margin-bottom: 10px;
+        margin-left: 35px;
+        margin-right: 35px;
+        text-align: center;
+        font-family: 'Roboto', 'Noto', 'sans-serif';
+        font-size: 20px;
+        font-weight: 650;
+        color: #35c0e9;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .container-whats {
+          display: block;
+        }
+      }
+    </style>
+    <div class="container-whats">
+      <div class="first-text">
+        Sportito è facile e gratuito: registrati, seleziona il gioco, crea la tua squadra e vinci premi.</div>
+      <a on-click="_shareWhatsApp" class="btnWhatsApp">
+        <!-- Icono WhatsApp -->
+        <img src="../../images/whatsapp-icon/whats2.png" alt="WhatsApp">
+      </a>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "sportito-pa-how-it-works-whatsapp",
+
+      // Only for WhatsApp Mobile
+      // _shareWhatsApp: function () {
+      //   var text = 'You can\'t beat my lineup';
+      //   var url = "https://www.sportito.it/pa/register_light"
+      //   var whats_app_message = encodeURIComponent(text) + " - " + encodeURIComponent(url);
+      //   var whatsapp_url = "whatsapp://send?text=" + whats_app_message;
+      //   window.location.href = whatsapp_url;
+      // }
+
+      // Only test for WhatsApp Web
+      _shareWhatsApp: function () {
+        var text = "You can't beat my lineup";
+        var url = "https://www.sportito.it/pa/register_light";
+        var encodedText = encodeURIComponent(text);
+        var encodedUrl = encodeURIComponent(url);
+        var whatsappUrl = "https://web.whatsapp.com/send?text=" + encodedText + " - " + encodedUrl;
+
+        window.open(whatsappUrl, "_blank");
+      }
+
+    });
+  </script>
+</dom-module>
