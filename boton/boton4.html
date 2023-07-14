@@ -1,4 +1,3 @@
-
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
 <link rel="import" href="../sportito-app-theme/sportito-app-theme.html">
@@ -7,14 +6,21 @@
   <template>
     <style>
       .container-whats {
-        display: none
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
       }
 
       .btnWhatsApp {
-        display: flex;
+        display: none;
+
         align-items: center;
         justify-content: center;
-        margin: 0 auto 8px;
+        margin: 0 auto;
         border-radius: 100%;
         padding: 10px;
         height: 35px;
@@ -23,10 +29,11 @@
         text-decoration: none;
         color: #FFFFFF;
         text-align: center;
-        line-height: 80px;
+        line-height: 1;
       }
 
       .btnWhatsApp img {
+        display: none;
         max-width: 125%;
         max-height: 125%;
         display: block;
@@ -47,15 +54,15 @@
         color: #35c0e9;
       }
 
-      @media only screen and (max-width: 768px) {
-        .container-whats {
-          display: block;
+      @media (max-width: 768px) {
+        .btnWhatsApp {
+          display: flex;
+          /* Mostrar el botón en dispositivos móviles */
         }
       }
     </style>
     <div class="container-whats">
-      <div class="first-text">
-        Sportito è facile e gratuito: registrati, seleziona il gioco, crea la tua squadra e vinci premi.</div>
+
       <a on-click="_shareWhatsApp" class="btnWhatsApp">
         <!-- Icono WhatsApp -->
         <img src="../../images/whatsapp-icon/whats2.png" alt="WhatsApp">
@@ -85,6 +92,7 @@
 
         window.open(whatsappUrl, "_blank");
       }
+
     });
   </script>
 </dom-module>
